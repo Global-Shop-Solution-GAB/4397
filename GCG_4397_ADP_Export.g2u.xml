@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SyntaxEdit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BorderStyle>None</BorderStyle>
+  <Pages>
+    <DefaultPage>
+      <Header>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Header>
+      <Footer>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Footer>
+      <PageSize>
+        <Width>0</Width>
+        <Height>0</Height>
+      </PageSize>
+    </DefaultPage>
+  </Pages>
+  <DisplayStrings />
+  <Selection>
+    <SelectionRect>
+      <Location>
+        <X>0</X>
+        <Y>311</Y>
+      </Location>
+      <Size>
+        <Width>24</Width>
+        <Height>2</Height>
+      </Size>
+      <X>0</X>
+      <Y>311</Y>
+      <Width>24</Width>
+      <Height>2</Height>
+    </SelectionRect>
+    <Options>UseColors OverwriteBlocks SelectLineOnTripleClick CopyLineWhenEmpty SelectWordOnCtrlClick</Options>
+  </Selection>
+  <Gutter>
+    <LineNumbersForeColor>WindowText</LineNumbersForeColor>
+    <Options>PaintLineNumbers PaintBookMarks PaintLineModificators</Options>
+  </Gutter>
+  <Margin>
+    <Visible>false</Visible>
+  </Margin>
+  <LineStyles />
+  <LineSeparator />
+  <Printing>
+    <Footer>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Footer>
+    <Header>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Header>
+  </Printing>
+  <WhiteSpace />
+  <TextSource>
+    <Position>
+      <X>0</X>
+      <Y>311</Y>
+    </Position>
+    <Lexer>
+      <Scheme>
+        <Author>Quantum Whale, LLC.</Author>
+        <Copyright>Copyright (c) 2004 - 2014 Quantum Whale LLC.</Copyright>
+        <FileType>gas</FileType>
+        <Version>1.5</Version>
+        <Styles>
+          <Style>
+            <Name>idents</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>numbers</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>reswords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>comments</Name>
+            <ForeColor>Green</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>xmlcomments</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>symbols</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>whitespace</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>strings</Name>
+            <ForeColor>Maroon</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>directives</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>htmlparams</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>syntax errors</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>codes nippets</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>255:180:228:180</BackColor>
+          </Style>
+          <Style>
+            <Name>GabReservedWords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabTokenWithBrackets</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabFunctionIntrinsicDebug</Name>
+            <ForeColor>White</ForeColor>
+            <BackColor>Red</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>GabVariable</Name>
+            <ForeColor>Teal</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabVariableSystemDefined</Name>
+            <ForeColor>Teal</ForeColor>
+            <FontStyle>Bold Italic</FontStyle>
+          </Style>
+          <Style>
+            <Name>GabGui</Name>
+            <ForeColor>OrangeRed</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabProgramSubStartEnd</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>LightGray</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+        </Styles>
+      </Scheme>
+    </Lexer>
+    <TextStrings>
+      <Lines>
+        <string>Program.Sub.ScreenSU.Start</string>
+        <string>Gui.Form..Create</string>
+        <string>Gui.Form..Size(2760,3360)</string>
+        <string>Gui.Form..MinX(0)</string>
+        <string>Gui.Form..MinY(0)</string>
+        <string>Gui.Form..Position(0,0)</string>
+        <string>Gui.Form..BackColor(-2147483633)</string>
+        <string>Gui.Form..MousePointer(0)</string>
+        <string>Gui.Form..Sizeable(False)</string>
+        <string>Gui.Form..Event(Drop,Unload)</string>
+        <string>Gui.Form..Caption("ADP")</string>
+        <string>Gui.Form.txtCompCode.Create(TextBox,"",True,1215,300,0,660,660,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtBatchNum.Create(TextBox,"",True,1215,300,0,660,1575,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.lblBatchNumber.Create(Label,"Batch Number",True,1935,255,0,615,1230,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.lblCompCode.Create(Label,"Company Code",True,1935,255,0,615,345,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.cmdProcess.Create(Button)</string>
+        <string>Gui.Form.cmdProcess.Size(855,375)</string>
+        <string>Gui.Form.cmdProcess.Position(840,2160)</string>
+        <string>Gui.Form.cmdProcess.Caption("Process")</string>
+        <string>Gui.Form.cmdProcess.Event(Click,CreateCSV)</string>
+        <string>Program.Sub.ScreenSU.End</string>
+        <string />
+        <string>Program.Sub.Preflight.Start</string>
+        <string>Program.Sub.Preflight.End</string>
+        <string />
+        <string>Program.Sub.Main.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Main_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>'Coded by: WAW</string>
+        <string>'Date: 3/8/17</string>
+        <string>'Program will run when transfer labor to payroll is ran in GSS and will create export file(.csv).</string>
+        <string />
+        <string />
+        <string>'open connection</string>
+        <string>F.odbc.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)</string>
+        <string />
+        <string>gui.Form.txtBatchNum.Text("2S7PR")</string>
+        <string>gui.Form.txtCompCode.Text("2S7")</string>
+        <string />
+        <string>'make the form visible</string>
+        <string>'gui.Form..Visible(true)</string>
+        <string>f.Intrinsic.Control.CallSub(createcsv)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Main_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4397_ADP_Export.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Main.End</string>
+        <string />
+        <string>Program.Sub.Unload.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Unload_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>gui.Form..Visible(false)</string>
+        <string />
+        <string>'close connection to the database</string>
+        <string>F.ODBC.Connection!conx.Close</string>
+        <string />
+        <string>'end the program</string>
+        <string>f.Intrinsic.Control.End</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Unload_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4397_ADP_Export.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.End</string>
+        <string />
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Unload.End</string>
+        <string />
+        <string>Program.Sub.CreateCSV.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("CreateCSV_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local.ssql.Declare(STring)</string>
+        <string>V.Local.sfilename.Declare(String)</string>
+        <string>V.Local.sfilepath.Declare(String)</string>
+        <string>v.Local.sdate.Declare(string)</string>
+        <string>v.Local.stime.Declare(string)</string>
+        <string>v.Local.bret.Declare(boolean)</string>
+        <string>v.Local.scymd.Declare(String)</string>
+        <string>v.Local.syear.Declare(String)</string>
+        <string>v.Local.sday.Declare(String)</string>
+        <string>v.Local.smon.Declare(STring)</string>
+        <string>v.Local.DDATE.Declare(Date)</string>
+        <string>v.Local.ifor.Declare(long)</string>
+        <string>v.Local.sempnum.Declare(string)</string>
+        <string>v.Local.sline.Declare(String)</string>
+        <string>v.Local.svacationleft.Declare(String)</string>
+        <string>v.Local.srthours.Declare(string)</string>
+        <string>v.Local.sothours.Declare(string)</string>
+        <string>v.Local.s3amt.Declare(String)</string>
+        <string>v.Local.s3code.Declare(String)</string>
+        <string>v.Local.s4amt.Declare(string)</string>
+        <string>v.Local.s4code.Declare(String)</string>
+        <string>v.Local.sshiftsql.Declare(string)</string>
+        <string>v.Local.stitlecolumns.Declare(STring)</string>
+        <string>v.Local.sshiftdiff.Declare(String)</string>
+        <string>v.Local.sempname.Declare(String)</string>
+        <string>v.Local.iloop.Declare(long)</string>
+        <string>v.Local.sSILAS.Declare(string)</string>
+        <string>v.Local.sdthours.Declare(string)</string>
+        <string />
+        <string>'f.Intrinsic.Control.If(v.Screen.Form!txtCompCode.Text,=,"")</string>
+        <string>'	F.Intrinsic.UI.Msgbox("Must enter an ADP Company Code")</string>
+        <string>'	f.Intrinsic.Control.ExitSub</string>
+        <string>'f.Intrinsic.Control.EndIf</string>
+        <string>'F.Intrinsic.Control.If(V.Screen.Form!txtBatchNum.Text,=,"")</string>
+        <string>'	F.Intrinsic.UI.Msgbox("Must enter a Batch Number")</string>
+        <string>'	F.Intrinsic.Control.ExitSub</string>
+        <string>'F.Intrinsic.Control.endif</string>
+        <string />
+        <string>'close form</string>
+        <string>gui.Form..Visible(False)</string>
+        <string>'format the dates and time</string>
+        <string>F.Intrinsic.String.Left(V.Passed.888888,8,V.Local.sCymd)</string>
+        <string>F.Intrinsic.String.Mid(V.Passed.888888,9,6,V.Local.sTime)</string>
+        <string>F.Intrinsic.String.Mid(V.Passed.888888,1,4,V.Local.sYear)</string>
+        <string>F.Intrinsic.String.Mid(V.Passed.888888,5,2,V.Local.sMon)</string>
+        <string>F.Intrinsic.String.Mid(V.Passed.888888,7,2,V.Local.sDay)</string>
+        <string>f.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMon,v.Local.sDay,V.Local.sYear,V.Local.sMon)</string>
+        <string>'THIS IS COMMENTED OUT FOR TESTING</string>
+        <string>'format the dates</string>
+        <string>'Function.Intrinsic.Date.ConvertDString(V.Local.sCymd,"MM/DD/YYYY", variable.local.DDATE)</string>
+        <string>'Function.Intrinsic.Date.ConvertDString(V.Local.sMon,"MM/DD/YYYY", variable.local.DDATE)</string>
+        <string />
+        <string>''build the file name</string>
+        <string>f.Intrinsic.String.Build("ADP{0}{1}.csv",v.Local.scymd,v.Local.stime,v.Local.sfilename)</string>
+        <string>'build the custom file path</string>
+        <string>F.Intrinsic.String.Build("{0}","J:\Common\Accounting-HR\ADP",v.Local.sfilepath)</string>
+        <string>F.Intrinsic.File.DirExists(V.Local.sFilepath,V.Local.bRet)</string>
+        <string>F.Intrinsic.Control.If(V.Local.bRet,=,False)</string>
+        <string>	F.Intrinsic.File.CreateDir(V.Local.sfilepath)</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string>'f.Intrinsic.String.Build("ADP{0}{1}.csv",v.Local.sdate,v.Local.stime,v.Local.sfilename)</string>
+        <string>F.Intrinsic.String.Build("{0}\{1}",v.Local.sfilepath,v.Local.sfilename,v.Local.sfilepath)</string>
+        <string>' load all employeees getting paid during this run.</string>
+        <string>'f.Intrinsic.String.Build("SELECT EMPLOYEE, EC, LEFT(DESCR, 3) as DESCRIPTION, TYPE, SHIFT, HOURS FROM PYRL_LABOR_XFER where RUN_CYMD &gt; '{0}'","160101",v.local.ssql)</string>
+        <string>'Function.intrinsic.string.Build("SELECT EMPLOYEE, EC, LEFT(DESCR, 3) as DESCRIPTION, TYPE, SHIFT, HOURS FROM PYRL_LABOR_XFER</string>
+        <string>Function.intrinsic.string.Build("SELECT EMPLOYEE, EC, LEFT(DESCR, 3) as DESCRIPTION, TYPE, SHIFT, HOURS FROM PYRL_LABOR_XFER WHERE RUN_CYMD = '{0}' and RUN_TIME = '{1}'",Variable.Local.scymd,Variable.Local.stime,v.Local.ssql)</string>
+        <string>F.Data.DataTable.CreateFromSQL("ADP","conx",v.Local.ssql,True)</string>
+        <string>'Check to see if there was data added to the payroll export</string>
+        <string>f.Intrinsic.Control.If(v.dataTable.ADP.RowCount,=,0)</string>
+        <string>	F.Data.DataTable.Close("ADP")</string>
+        <string>	F.ODBC.Connection!conX.Close</string>
+        <string>	F.Intrinsic.UI.Msgbox("No payroll records found.","Payroll Export")</string>
+        <string>	F.Intrinsic.Control.End</string>
+        <string />
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string>'File Layout</string>
+        <string>'Co Code, Batch Id, File#, Reg Hours, O/T Hours, Hours3 Code, Hours3 Amount, Hours4 Code, Hours4 Amount, Temp Dept, Temp Rate, Memo Code, Memo Amount.</string>
+        <string>'Begin bulding the .CSV file</string>
+        <string>F.Intrinsic.Control.For(v.Local.iFor,0,v.dataTable.ADP.RowCount--,1)</string>
+        <string>	'Co Code - Screen</string>
+        <string>	'Batch ID - Screen</string>
+        <string>	'File# - Comments 3 from EMP master</string>
+        <string>	F.Intrinsic.String.Build("Select Comments_3, VACATION_LEFT, NAME from EMPLOYEE_MSTR where Employee = '{0}'",V.DataTable.ADP(v.Local.ifor).EMPLOYEE.fieldvaltrim,V.Local.sSQL)</string>
+        <string>	F.ODBC.Connection!Conx.OpenLocalRecordsetRO("rstEmp",V.Local.sSQL)</string>
+        <string>	F.Intrinsic.Control.If(V.ODBC.Conx!rstEmp.EOF,=,False)</string>
+        <string>		'set the vacation</string>
+        <string>		v.Local.svacationleft.Set(v.odbc.conx!rstEmp.FieldValTrim!VACATION_LEFT)</string>
+        <string>		'set the emp number</string>
+        <string>		v.Local.sempnum.Set(v.ODBC.conx!rstEmp.FieldValTrim!COMMENTS_3)</string>
+        <string>		v.Local.sempname.Set(v.ODBC.conx!rstEmp.FieldValTrim!NAME)</string>
+        <string>		'pad if 5 chars</string>
+        <string>		f.Intrinsic.String.LPad(v.Local.sempnum,"0",6,v.Local.sempnum)</string>
+        <string>'		f.Intrinsic.String.Build("{0}{1}","'",v.Local.sempnum,v.Local.sempnum)</string>
+        <string>	f.Intrinsic.Control.Else</string>
+        <string>		v.Local.sempnum.Set("")</string>
+        <string>		v.Local.sempname.Set("")</string>
+        <string>		v.Local.svacationleft.Set("")</string>
+        <string>	f.Intrinsic.Control.EndIf</string>
+        <string>	f.ODBC.conx!rstEmp.Close</string>
+        <string />
+        <string>	'format the employee name</string>
+        <string>	f.Intrinsic.Control.If(v.Local.sempname.Trim,&lt;&gt;,"")</string>
+        <string>		f.Intrinsic.String.Replace(v.Local.sempname,",","",v.Local.sempname)</string>
+        <string>		f.Intrinsic.String.Replace(v.Local.sempname,"  "," ",v.Local.sempname)	</string>
+        <string>		f.Intrinsic.String.Replace(v.Local.sempname," , "," ,",v.Local.sempname)</string>
+        <string>		f.Intrinsic.String.Replace(v.Local.sempname,"Jr. ","",v.Local.sempname)</string>
+        <string>		f.Intrinsic.String.Replace(v.Local.sempname,"Jr","",v.Local.sempname)</string>
+        <string>		f.Intrinsic.String.Replace(v.Local.sempname,"Jr,","",v.Local.sempname)	</string>
+        <string>		f.Intrinsic.String.Replace(v.Local.sempname,"Jr. ","",v.Local.sempname)		</string>
+        <string>		f.Intrinsic.String.Replace(v.Local.sempname,"Jr, ","",v.Local.sempname)	</string>
+        <string>		f.Intrinsic.String.Replace(v.Local.sempname,"Jr., ","",v.Local.sempname)</string>
+        <string>		f.Intrinsic.String.Replace(v.Local.sempname,"Jr , ","",v.Local.sempname)		</string>
+        <string>		f.Intrinsic.String.Replace(v.Local.sempname,"  "," ",v.Local.sempname)		</string>
+        <string>		'split based on a string</string>
+        <string>		f.Intrinsic.String.Split(v.Local.sempname.Trim," ",v.Local.sempname)</string>
+        <string>		'see if they have a middle initial</string>
+        <string>		f.Intrinsic.Control.If(v.Local.sempname.UBound,=,1)</string>
+        <string>			f.Intrinsic.String.Build("{0} {1}",v.Local.sempname(0),v.Local.sempname(1),v.Local.sempname)</string>
+        <string>		f.Intrinsic.Control.ElseIf(v.Local.sempname.UBound,=,2)</string>
+        <string>			f.Intrinsic.String.Build("{0} {1}",v.Local.sempname(0),v.Local.sempname(1),v.Local.sempname)</string>
+        <string>		f.Intrinsic.Control.ElseIf(v.Local.sempname.UBound,=,3)</string>
+        <string>			f.Intrinsic.String.Build("{0} {1}",v.Local.sempname(0),v.Local.sempname(1),v.Local.sempname)</string>
+        <string>		f.Intrinsic.Control.EndIf</string>
+        <string>	f.Intrinsic.Control.EndIf</string>
+        <string>	'check to see if regular or overtime hours</string>
+        <string>	'Reg Hours - From Datatable</string>
+        <string>	f.Intrinsic.Control.If(V.DataTable.ADP(v.Local.ifor).TYPE.fieldvaltrim,=,"RT")</string>
+        <string>		v.Local.srthours.Set(V.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)</string>
+        <string>	f.Intrinsic.Control.Else</string>
+        <string>		v.Local.srthours.Set("")	</string>
+        <string>	f.Intrinsic.Control.EndIf</string>
+        <string>	'O/T Hours</string>
+        <string>	f.Intrinsic.Control.If(V.DataTable.ADP(v.Local.ifor).TYPE.fieldvaltrim,=,"OT")</string>
+        <string>		v.Local.sothours.Set(V.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)</string>
+        <string>	f.Intrinsic.Control.Else</string>
+        <string>		v.Local.sothours.Set("")</string>
+        <string>	f.Intrinsic.Control.EndIf</string>
+        <string>	'DT Hours</string>
+        <string>	f.Intrinsic.Control.If(V.DataTable.ADP(v.Local.ifor).TYPE.fieldvaltrim,=,"DT")</string>
+        <string>		v.Local.s3amt.Set(V.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)</string>
+        <string>		v.Local.s3code.Set("DBL")</string>
+        <string>	f.Intrinsic.Control.Else</string>
+        <string>		v.Local.s3code.Set("")</string>
+        <string>		v.Local.s3amt.Set("")</string>
+        <string>	f.Intrinsic.Control.EndIf	</string>
+        <string />
+        <string>	'query for the shift differential</string>
+        <string>	f.Intrinsic.String.Build("Select DIFFERENTIAL from EMPLOYEE_MSTR where EMPLOYEE = '{0}' and SHIFT = '{1}'",v.Local.sempnum.Trim,v.DataTable.ADP(v.Local.ifor).SHIFT.fieldvaltrim,v.Local.sshiftsql)</string>
+        <string>	F.ODBC.Connection!Conx.OpenLocalRecordsetRO("rstEmp",V.Local.sshiftsQL)</string>
+        <string>	F.Intrinsic.Control.If(V.ODBC.Conx!rstEmp.EOF,=,False)</string>
+        <string>'		v.Local.sempname.Set(v.ODBC.conx!rstEmp.FieldValTrim!NAME)</string>
+        <string>		v.Local.sshiftdiff.Set(v.ODBC.conx!rstEmp.FieldValTrim!DIFFERENTIAL)</string>
+        <string>	f.Intrinsic.Control.Else</string>
+        <string>'		v.Local.sempname.Set("")</string>
+        <string>		v.Local.sshiftdiff.Set("")</string>
+        <string>	f.Intrinsic.Control.EndIf	</string>
+        <string />
+        <string>	f.Intrinsic.String.Build("{0} {1}",v.Local.s3code,v.Local.sshiftdiff,v.Local.s3code)</string>
+        <string />
+        <string>	'check to see if the DESCRIPTION is NOT VAC, HOL, BRV, JUR, DBL</string>
+        <string>	f.Intrinsic.Control.If(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,=,"VAC")</string>
+        <string>		v.Local.s4amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)</string>
+        <string>		'HOurs 4 Code - 3 characters from DESCRIPTION plus the shift differential</string>
+        <string>		f.Intrinsic.String.Build("{0}{1}",v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,v.Local.sshiftdiff.Trim,v.Local.s4code)</string>
+        <string>	f.Intrinsic.Control.elseIf(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,=,"HOL")</string>
+        <string>		v.Local.s4amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)</string>
+        <string>		'HOurs 4 Code - 3 characters from DESCRIPTION plus the shift differential</string>
+        <string>		f.Intrinsic.String.Build("{0}{1}",v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,v.Local.sshiftdiff.Trim,v.Local.s4code)</string>
+        <string>	f.Intrinsic.Control.elseIf(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,=,"BER")</string>
+        <string>		'HOurs 4 Code - 3 characters from DESCRIPTION plus the shift differential</string>
+        <string>		f.Intrinsic.String.Build("{0}{1}","BRV",v.Local.sshiftdiff.Trim,v.Local.s4code)</string>
+        <string>		v.Local.s4amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)		</string>
+        <string>	f.Intrinsic.Control.ElseIf(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,=,"JUR")</string>
+        <string>		'HOurs 4 Code - 3 characters from DESCRIPTION plus the shift differential</string>
+        <string>		f.Intrinsic.String.Build("{0}{1}",v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,v.Local.sshiftdiff.Trim,v.Local.s4code)</string>
+        <string>		v.Local.s4amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)	</string>
+        <string>	f.Intrinsic.Control.ElseIf(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,=,"DBL")	</string>
+        <string>		'HOurs 4 Code - 3 characters from DESCRIPTION plus the shift differential</string>
+        <string>		f.Intrinsic.String.Build("{0}{1}",v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,v.Local.sshiftdiff.Trim,v.Local.s3code)</string>
+        <string>		v.Local.s3amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)</string>
+        <string>	f.Intrinsic.Control.Else</string>
+        <string>		'HOurs 3 Code - 3 characters from DESCRIPTION plus the shift differential</string>
+        <string>'		f.Intrinsic.String.Build("{0}{1}",v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,v.Local.sshiftdiff.Trim,v.Local.s3code)</string>
+        <string>'		v.Local.s3code.Set(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim)</string>
+        <string>'		v.Local.s3amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)</string>
+        <string>	f.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>	'temp dept - Blank</string>
+        <string>	'temp rate - Blank</string>
+        <string>	'memo code - Always VAC</string>
+        <string>	'memo amount - vacation hours left from employee_mstr</string>
+        <string>	'check to see if a new line or fist line</string>
+        <string>	f.Intrinsic.Control.If(v.Local.sline.Trim,=,"")</string>
+        <string>		f.Intrinsic.String.Build("{0}, Batch ID, File #, Name, Reg Hours, O/T Hours, Hours 3 Code, Hours 3 Amount, Hours 4 Code, Hours 4 Amount, Temp Rate, Rate Code, Memo Code, Memo Amount","Co Code",v.Local.stitlecolumns)</string>
+        <string>		f.Intrinsic.String.Build("{14}{15}{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",v.Screen.Form!txtCompCode.Text,v.Screen.Form!txtBatchNum.Text,v.Local.sempnum.Trim,v.Local.sempname,v.Local.srthours.Trim,v.Local.sothours.Trim,v.Local.s3code.Trim,v.Local.s3amt,v.Local.s4code,v.Local.s4amt,"","","VAC",v.Local.svacationleft.Trim,v.local.stitlecolumns,v.Ambient.NewLine,v.Local.sline)</string>
+        <string>	f.Intrinsic.Control.Else</string>
+        <string>'		f.Intrinsic.Control.If(v.Local.ifor,=,v.dataTable.ADP.RowCount--)</string>
+        <string>			f.Intrinsic.String.Build("{0}{1}{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15}",v.Local.sline,v.Ambient.NewLine,v.Screen.Form!txtCompCode.Text,v.Screen.Form!txtBatchNum.Text,v.Local.sempnum.Trim,v.Local.sempname,v.Local.srthours.Trim,v.Local.sothours.Trim,v.Local.s3code.Trim,v.Local.s3amt,v.Local.s4code,v.Local.s4amt,"","","VAC",v.Local.svacationleft.Trim,v.Local.sline)</string>
+        <string>	f.Intrinsic.Control.EndIf</string>
+        <string>	f.ODBC.conx!rstEmp.close</string>
+        <string>	'clear the variables</string>
+        <string>	v.Local.sempnum.Set("")</string>
+        <string>	v.Local.s3code.Set("")</string>
+        <string>	v.Local.s3amt.Set("")</string>
+        <string>	v.Local.s4code.Set("")</string>
+        <string>	v.Local.s4amt.Set("")</string>
+        <string>F.Intrinsic.Control.Next(v.Local.iFor)</string>
+        <string>'write the file in the specified directory</string>
+        <string>f.Intrinsic.File.String2File(v.Local.sfilepath,v.Local.sline)</string>
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("CreateCSV_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4397_ADP_Export.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.CreateCSV.End</string>
+        <string />
+        <string>Program.Sub.Comments.Start</string>
+        <string>${$0$}$$}$WAW$}$3/8/2017 8:57:34 AM$}$False</string>
+        <string>Program.Sub.Comments.End</string>
+      </Lines>
+    </TextStrings>
+  </TextSource>
+  <Scrolling>
+    <WindowOriginY>237</WindowOriginY>
+    <Options>None</Options>
+  </Scrolling>
+  <Outlining>
+    <AllowOutlining>true</AllowOutlining>
+    <ImageSize>8</ImageSize>
+    <Ranges>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>20</Y>
+        </EndPoint>
+        <Text>Program.Sub.ScreenSU</Text>
+        <DisplayText>Program.Sub.ScreenSU</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>22</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>23</Y>
+        </EndPoint>
+        <Text>Program.Sub.Preflight</Text>
+        <DisplayText>Program.Sub.Preflight</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>25</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>56</Y>
+        </EndPoint>
+        <Text>Program.Sub.Main</Text>
+        <DisplayText>Program.Sub.Main</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>58</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>83</Y>
+        </EndPoint>
+        <Text>Program.Sub.Unload</Text>
+        <DisplayText>Program.Sub.Unload</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>85</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>309</Y>
+        </EndPoint>
+        <Text>Program.Sub.CreateCSV</Text>
+        <DisplayText>Program.Sub.CreateCSV</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>311</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>313</Y>
+        </EndPoint>
+        <Text>Program.Sub.Comments</Text>
+        <DisplayText>Program.Sub.Comments</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+    </Ranges>
+  </Outlining>
+  <HyperText />
+  <Spelling />
+  <Braces />
+</SyntaxEdit>
