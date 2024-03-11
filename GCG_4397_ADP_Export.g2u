@@ -1,0 +1,314 @@
+Program.Sub.ScreenSU.Start
+Gui.Form..Create
+Gui.Form..Size(2760,3360)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Gui.Form..Sizeable(False)
+Gui.Form..Event(Drop,Unload)
+Gui.Form..Caption("ADP")
+Gui.Form.txtCompCode.Create(TextBox,"",True,1215,300,0,660,660,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtBatchNum.Create(TextBox,"",True,1215,300,0,660,1575,True,0,"Arial",8,-2147483643,1)
+Gui.Form.lblBatchNumber.Create(Label,"Batch Number",True,1935,255,0,615,1230,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblCompCode.Create(Label,"Company Code",True,1935,255,0,615,345,True,0,"Arial",8,-2147483633,0)
+Gui.Form.cmdProcess.Create(Button)
+Gui.Form.cmdProcess.Size(855,375)
+Gui.Form.cmdProcess.Position(840,2160)
+Gui.Form.cmdProcess.Caption("Process")
+Gui.Form.cmdProcess.Event(Click,CreateCSV)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Coded by: WAW
+'Date: 3/8/17
+'Program will run when transfer labor to payroll is ran in GSS and will create export file(.csv).
+
+
+'open connection
+F.odbc.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+gui.Form.txtBatchNum.Text("2S7PR")
+gui.Form.txtCompCode.Text("2S7")
+
+'make the form visible
+'gui.Form..Visible(true)
+f.Intrinsic.Control.CallSub(createcsv)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4397_ADP_Export.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.SetErrorHandler("Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+gui.Form..Visible(false)
+
+'close connection to the database
+F.ODBC.Connection!conx.Close
+
+'end the program
+f.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4397_ADP_Export.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Unload.End
+
+Program.Sub.CreateCSV.Start
+F.Intrinsic.Control.SetErrorHandler("CreateCSV_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.ssql.Declare(STring)
+V.Local.sfilename.Declare(String)
+V.Local.sfilepath.Declare(String)
+v.Local.sdate.Declare(string)
+v.Local.stime.Declare(string)
+v.Local.bret.Declare(boolean)
+v.Local.scymd.Declare(String)
+v.Local.syear.Declare(String)
+v.Local.sday.Declare(String)
+v.Local.smon.Declare(STring)
+v.Local.DDATE.Declare(Date)
+v.Local.ifor.Declare(long)
+v.Local.sempnum.Declare(string)
+v.Local.sline.Declare(String)
+v.Local.svacationleft.Declare(String)
+v.Local.srthours.Declare(string)
+v.Local.sothours.Declare(string)
+v.Local.s3amt.Declare(String)
+v.Local.s3code.Declare(String)
+v.Local.s4amt.Declare(string)
+v.Local.s4code.Declare(String)
+v.Local.sshiftsql.Declare(string)
+v.Local.stitlecolumns.Declare(STring)
+v.Local.sshiftdiff.Declare(String)
+v.Local.sempname.Declare(String)
+v.Local.iloop.Declare(long)
+v.Local.sSILAS.Declare(string)
+v.Local.sdthours.Declare(string)
+
+'f.Intrinsic.Control.If(v.Screen.Form!txtCompCode.Text,=,"")
+'	F.Intrinsic.UI.Msgbox("Must enter an ADP Company Code")
+'	f.Intrinsic.Control.ExitSub
+'f.Intrinsic.Control.EndIf
+'F.Intrinsic.Control.If(V.Screen.Form!txtBatchNum.Text,=,"")
+'	F.Intrinsic.UI.Msgbox("Must enter a Batch Number")
+'	F.Intrinsic.Control.ExitSub
+'F.Intrinsic.Control.endif
+
+'close form
+gui.Form..Visible(False)
+'format the dates and time
+F.Intrinsic.String.Left(V.Passed.888888,8,V.Local.sCymd)
+F.Intrinsic.String.Mid(V.Passed.888888,9,6,V.Local.sTime)
+F.Intrinsic.String.Mid(V.Passed.888888,1,4,V.Local.sYear)
+F.Intrinsic.String.Mid(V.Passed.888888,5,2,V.Local.sMon)
+F.Intrinsic.String.Mid(V.Passed.888888,7,2,V.Local.sDay)
+f.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMon,v.Local.sDay,V.Local.sYear,V.Local.sMon)
+'THIS IS COMMENTED OUT FOR TESTING
+'format the dates
+'Function.Intrinsic.Date.ConvertDString(V.Local.sCymd,"MM/DD/YYYY", variable.local.DDATE)
+'Function.Intrinsic.Date.ConvertDString(V.Local.sMon,"MM/DD/YYYY", variable.local.DDATE)
+
+''build the file name
+f.Intrinsic.String.Build("ADP{0}{1}.csv",v.Local.scymd,v.Local.stime,v.Local.sfilename)
+'build the custom file path
+F.Intrinsic.String.Build("{0}","J:\Common\Accounting-HR\ADP",v.Local.sfilepath)
+F.Intrinsic.File.DirExists(V.Local.sFilepath,V.Local.bRet)
+F.Intrinsic.Control.If(V.Local.bRet,=,False)
+	F.Intrinsic.File.CreateDir(V.Local.sfilepath)
+F.Intrinsic.Control.EndIf
+'f.Intrinsic.String.Build("ADP{0}{1}.csv",v.Local.sdate,v.Local.stime,v.Local.sfilename)
+F.Intrinsic.String.Build("{0}\{1}",v.Local.sfilepath,v.Local.sfilename,v.Local.sfilepath)
+' load all employeees getting paid during this run.
+'f.Intrinsic.String.Build("SELECT EMPLOYEE, EC, LEFT(DESCR, 3) as DESCRIPTION, TYPE, SHIFT, HOURS FROM PYRL_LABOR_XFER where RUN_CYMD > '{0}'","160101",v.local.ssql)
+'Function.intrinsic.string.Build("SELECT EMPLOYEE, EC, LEFT(DESCR, 3) as DESCRIPTION, TYPE, SHIFT, HOURS FROM PYRL_LABOR_XFER
+Function.intrinsic.string.Build("SELECT EMPLOYEE, EC, LEFT(DESCR, 3) as DESCRIPTION, TYPE, SHIFT, HOURS FROM PYRL_LABOR_XFER WHERE RUN_CYMD = '{0}' and RUN_TIME = '{1}'",Variable.Local.scymd,Variable.Local.stime,v.Local.ssql)
+F.Data.DataTable.CreateFromSQL("ADP","conx",v.Local.ssql,True)
+'Check to see if there was data added to the payroll export
+f.Intrinsic.Control.If(v.dataTable.ADP.RowCount,=,0)
+	F.Data.DataTable.Close("ADP")
+	F.ODBC.Connection!conX.Close
+	F.Intrinsic.UI.Msgbox("No payroll records found.","Payroll Export")
+	F.Intrinsic.Control.End
+
+F.Intrinsic.Control.EndIf
+'File Layout
+'Co Code, Batch Id, File#, Reg Hours, O/T Hours, Hours3 Code, Hours3 Amount, Hours4 Code, Hours4 Amount, Temp Dept, Temp Rate, Memo Code, Memo Amount.
+'Begin bulding the .CSV file
+F.Intrinsic.Control.For(v.Local.iFor,0,v.dataTable.ADP.RowCount--,1)
+	'Co Code - Screen
+	'Batch ID - Screen
+	'File# - Comments 3 from EMP master
+	F.Intrinsic.String.Build("Select Comments_3, VACATION_LEFT, NAME from EMPLOYEE_MSTR where Employee = '{0}'",V.DataTable.ADP(v.Local.ifor).EMPLOYEE.fieldvaltrim,V.Local.sSQL)
+	F.ODBC.Connection!Conx.OpenLocalRecordsetRO("rstEmp",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.Conx!rstEmp.EOF,=,False)
+		'set the vacation
+		v.Local.svacationleft.Set(v.odbc.conx!rstEmp.FieldValTrim!VACATION_LEFT)
+		'set the emp number
+		v.Local.sempnum.Set(v.ODBC.conx!rstEmp.FieldValTrim!COMMENTS_3)
+		v.Local.sempname.Set(v.ODBC.conx!rstEmp.FieldValTrim!NAME)
+		'pad if 5 chars
+		f.Intrinsic.String.LPad(v.Local.sempnum,"0",6,v.Local.sempnum)
+'		f.Intrinsic.String.Build("{0}{1}","'",v.Local.sempnum,v.Local.sempnum)
+	f.Intrinsic.Control.Else
+		v.Local.sempnum.Set("")
+		v.Local.sempname.Set("")
+		v.Local.svacationleft.Set("")
+	f.Intrinsic.Control.EndIf
+	f.ODBC.conx!rstEmp.Close
+
+	'format the employee name
+	f.Intrinsic.Control.If(v.Local.sempname.Trim,<>,"")
+		f.Intrinsic.String.Replace(v.Local.sempname,",","",v.Local.sempname)
+		f.Intrinsic.String.Replace(v.Local.sempname,"  "," ",v.Local.sempname)	
+		f.Intrinsic.String.Replace(v.Local.sempname," , "," ,",v.Local.sempname)
+		f.Intrinsic.String.Replace(v.Local.sempname,"Jr. ","",v.Local.sempname)
+		f.Intrinsic.String.Replace(v.Local.sempname,"Jr","",v.Local.sempname)
+		f.Intrinsic.String.Replace(v.Local.sempname,"Jr,","",v.Local.sempname)	
+		f.Intrinsic.String.Replace(v.Local.sempname,"Jr. ","",v.Local.sempname)		
+		f.Intrinsic.String.Replace(v.Local.sempname,"Jr, ","",v.Local.sempname)	
+		f.Intrinsic.String.Replace(v.Local.sempname,"Jr., ","",v.Local.sempname)
+		f.Intrinsic.String.Replace(v.Local.sempname,"Jr , ","",v.Local.sempname)		
+		f.Intrinsic.String.Replace(v.Local.sempname,"  "," ",v.Local.sempname)		
+		'split based on a string
+		f.Intrinsic.String.Split(v.Local.sempname.Trim," ",v.Local.sempname)
+		'see if they have a middle initial
+		f.Intrinsic.Control.If(v.Local.sempname.UBound,=,1)
+			f.Intrinsic.String.Build("{0} {1}",v.Local.sempname(0),v.Local.sempname(1),v.Local.sempname)
+		f.Intrinsic.Control.ElseIf(v.Local.sempname.UBound,=,2)
+			f.Intrinsic.String.Build("{0} {1}",v.Local.sempname(0),v.Local.sempname(1),v.Local.sempname)
+		f.Intrinsic.Control.ElseIf(v.Local.sempname.UBound,=,3)
+			f.Intrinsic.String.Build("{0} {1}",v.Local.sempname(0),v.Local.sempname(1),v.Local.sempname)
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.EndIf
+	'check to see if regular or overtime hours
+	'Reg Hours - From Datatable
+	f.Intrinsic.Control.If(V.DataTable.ADP(v.Local.ifor).TYPE.fieldvaltrim,=,"RT")
+		v.Local.srthours.Set(V.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)
+	f.Intrinsic.Control.Else
+		v.Local.srthours.Set("")	
+	f.Intrinsic.Control.EndIf
+	'O/T Hours
+	f.Intrinsic.Control.If(V.DataTable.ADP(v.Local.ifor).TYPE.fieldvaltrim,=,"OT")
+		v.Local.sothours.Set(V.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)
+	f.Intrinsic.Control.Else
+		v.Local.sothours.Set("")
+	f.Intrinsic.Control.EndIf
+	'DT Hours
+	f.Intrinsic.Control.If(V.DataTable.ADP(v.Local.ifor).TYPE.fieldvaltrim,=,"DT")
+		v.Local.s3amt.Set(V.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)
+		v.Local.s3code.Set("DBL")
+	f.Intrinsic.Control.Else
+		v.Local.s3code.Set("")
+		v.Local.s3amt.Set("")
+	f.Intrinsic.Control.EndIf	
+
+	'query for the shift differential
+	f.Intrinsic.String.Build("Select DIFFERENTIAL from EMPLOYEE_MSTR where EMPLOYEE = '{0}' and SHIFT = '{1}'",v.Local.sempnum.Trim,v.DataTable.ADP(v.Local.ifor).SHIFT.fieldvaltrim,v.Local.sshiftsql)
+	F.ODBC.Connection!Conx.OpenLocalRecordsetRO("rstEmp",V.Local.sshiftsQL)
+	F.Intrinsic.Control.If(V.ODBC.Conx!rstEmp.EOF,=,False)
+'		v.Local.sempname.Set(v.ODBC.conx!rstEmp.FieldValTrim!NAME)
+		v.Local.sshiftdiff.Set(v.ODBC.conx!rstEmp.FieldValTrim!DIFFERENTIAL)
+	f.Intrinsic.Control.Else
+'		v.Local.sempname.Set("")
+		v.Local.sshiftdiff.Set("")
+	f.Intrinsic.Control.EndIf	
+
+	f.Intrinsic.String.Build("{0} {1}",v.Local.s3code,v.Local.sshiftdiff,v.Local.s3code)
+
+	'check to see if the DESCRIPTION is NOT VAC, HOL, BRV, JUR, DBL
+	f.Intrinsic.Control.If(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,=,"VAC")
+		v.Local.s4amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)
+		'HOurs 4 Code - 3 characters from DESCRIPTION plus the shift differential
+		f.Intrinsic.String.Build("{0}{1}",v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,v.Local.sshiftdiff.Trim,v.Local.s4code)
+	f.Intrinsic.Control.elseIf(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,=,"HOL")
+		v.Local.s4amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)
+		'HOurs 4 Code - 3 characters from DESCRIPTION plus the shift differential
+		f.Intrinsic.String.Build("{0}{1}",v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,v.Local.sshiftdiff.Trim,v.Local.s4code)
+	f.Intrinsic.Control.elseIf(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,=,"BER")
+		'HOurs 4 Code - 3 characters from DESCRIPTION plus the shift differential
+		f.Intrinsic.String.Build("{0}{1}","BRV",v.Local.sshiftdiff.Trim,v.Local.s4code)
+		v.Local.s4amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)		
+	f.Intrinsic.Control.ElseIf(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,=,"JUR")
+		'HOurs 4 Code - 3 characters from DESCRIPTION plus the shift differential
+		f.Intrinsic.String.Build("{0}{1}",v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,v.Local.sshiftdiff.Trim,v.Local.s4code)
+		v.Local.s4amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)	
+	f.Intrinsic.Control.ElseIf(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,=,"DBL")	
+		'HOurs 4 Code - 3 characters from DESCRIPTION plus the shift differential
+		f.Intrinsic.String.Build("{0}{1}",v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,v.Local.sshiftdiff.Trim,v.Local.s3code)
+		v.Local.s3amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)
+	f.Intrinsic.Control.Else
+		'HOurs 3 Code - 3 characters from DESCRIPTION plus the shift differential
+'		f.Intrinsic.String.Build("{0}{1}",v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim,v.Local.sshiftdiff.Trim,v.Local.s3code)
+'		v.Local.s3code.Set(v.DataTable.ADP(v.Local.ifor).DESCRIPTION.fieldvaltrim)
+'		v.Local.s3amt.Set(v.DataTable.ADP(v.Local.ifor).HOURS.fieldvaltrim)
+	f.Intrinsic.Control.EndIf
+
+	'temp dept - Blank
+	'temp rate - Blank
+	'memo code - Always VAC
+	'memo amount - vacation hours left from employee_mstr
+	'check to see if a new line or fist line
+	f.Intrinsic.Control.If(v.Local.sline.Trim,=,"")
+		f.Intrinsic.String.Build("{0}, Batch ID, File #, Name, Reg Hours, O/T Hours, Hours 3 Code, Hours 3 Amount, Hours 4 Code, Hours 4 Amount, Temp Rate, Rate Code, Memo Code, Memo Amount","Co Code",v.Local.stitlecolumns)
+		f.Intrinsic.String.Build("{14}{15}{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",v.Screen.Form!txtCompCode.Text,v.Screen.Form!txtBatchNum.Text,v.Local.sempnum.Trim,v.Local.sempname,v.Local.srthours.Trim,v.Local.sothours.Trim,v.Local.s3code.Trim,v.Local.s3amt,v.Local.s4code,v.Local.s4amt,"","","VAC",v.Local.svacationleft.Trim,v.local.stitlecolumns,v.Ambient.NewLine,v.Local.sline)
+	f.Intrinsic.Control.Else
+'		f.Intrinsic.Control.If(v.Local.ifor,=,v.dataTable.ADP.RowCount--)
+			f.Intrinsic.String.Build("{0}{1}{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15}",v.Local.sline,v.Ambient.NewLine,v.Screen.Form!txtCompCode.Text,v.Screen.Form!txtBatchNum.Text,v.Local.sempnum.Trim,v.Local.sempname,v.Local.srthours.Trim,v.Local.sothours.Trim,v.Local.s3code.Trim,v.Local.s3amt,v.Local.s4code,v.Local.s4amt,"","","VAC",v.Local.svacationleft.Trim,v.Local.sline)
+	f.Intrinsic.Control.EndIf
+	f.ODBC.conx!rstEmp.close
+	'clear the variables
+	v.Local.sempnum.Set("")
+	v.Local.s3code.Set("")
+	v.Local.s3amt.Set("")
+	v.Local.s4code.Set("")
+	v.Local.s4amt.Set("")
+F.Intrinsic.Control.Next(v.Local.iFor)
+'write the file in the specified directory
+f.Intrinsic.File.String2File(v.Local.sfilepath,v.Local.sline)
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("CreateCSV_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4397_ADP_Export.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.CreateCSV.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$WAW$}$3/8/2017 8:57:34 AM$}$False
+Program.Sub.Comments.End
